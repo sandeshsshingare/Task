@@ -1,0 +1,94 @@
+<div class="d-flex justify-content-center aligh-items-center">
+  <form #registerForm="ngForm" class="border bg-light text-center">
+    <h1 class="text-center">Registration</h1>
+    <div>
+      <input
+        required
+        #name="ngModel"
+        pattern="[a-zA-z]+$"
+        name="name"
+        ngModel
+        type="text"
+        class="form-control mt-4 w-75 text-center"
+        placeholder="Enter name"
+        required
+      />
+      <span *ngIf="name.invalid && name.touched" class="text-danger"
+        >Please provide name</span
+      >
+    </div>
+    <div>
+      <input
+        required
+        #email="ngModel"
+        name="email"
+        ngModel
+        type="email"
+        class="form-control mt-4 w-75 text-center"
+        placeholder="Enter email"
+      />
+      <span *ngIf="email.invalid && email.touched" class="text-danger"
+        >Please provide email</span
+      >
+    </div>
+    <div>
+      <input
+        required
+        #password="ngModel"
+        minlength="3"
+        name="password"
+        ngModel
+        type="text"
+        class="form-control mt-4 w-75 text-center"
+        placeholder="Enter password"
+        required
+      />
+      <span *ngIf="password.invalid && password.touched" class="text-danger"
+        >Please provide password</span
+      >
+    </div>
+    <div>
+      <input
+        required
+        #companyname="ngModel"
+        name="companyname"
+        ngModel
+        type="text"
+        class="form-control mt-4 w-75 text-center"
+        placeholder="Enter company name"
+        required
+      />
+      <span
+        *ngIf="companyname.invalid && companyname.touched"
+        class="text-danger"
+        >Please provide company name</span
+      >
+    </div>
+
+    <div>
+      <select
+        class="form-select"
+        aria-label="Default select example"
+        #role="ngModel"
+        ngModel
+        name="role"
+      >
+        <option selected>NA</option>
+        <option value="One">One</option>
+        <option value="Two">Two</option>
+        <option value="Three">Three</option>
+      </select>
+    </div>
+
+    <div>
+      <button
+        type="submit"
+        class="btn btn-primary text-black"
+        [disabled]="registerForm.invalid"
+        (click)="storeRegisterInfo(registerForm.value)"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>

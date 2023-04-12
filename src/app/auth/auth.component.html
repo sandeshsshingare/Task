@@ -1,0 +1,27 @@
+<nav
+  class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between"
+>
+  <div class="float-start">
+    <h1>Welcome {{ getName() }}</h1>
+  </div>
+
+  <div class="me-5">
+    <button
+      routerLink="login"
+      class="btn btn-danger m-3"
+      (click)="clearLogin()"
+    >
+      Logout
+    </button>
+
+    <button routerLink="auth/login" class="btn btn-success m-3">Login</button>
+    <button routerLink="auth/register" class="btn btn-primary m-3">
+      Register
+    </button>
+    <button mat-fab routerLink="myProfile" class="btn btn-success">
+      Profile
+    </button>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

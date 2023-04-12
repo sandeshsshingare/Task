@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center aligh-items-center">
+  <form
+    #loginForm="ngForm"
+    class="border bg-light text-center"
+    (ngSubmit)="verifyLogin(loginForm.value)"
+  >
+    <h2 class="text-center">Login</h2>
+    <div>
+      <input
+        required
+        #name="ngModel"
+        name="email"
+        ngModel
+        type="email"
+        class="form-control mt-4 w-75 text-center"
+        placeholder="Enter email"
+      />
+      <span *ngIf="name.invalid && name.touched" class="text-danger"
+        >Please provide email</span
+      >
+    </div>
+    <div>
+      <input
+        required
+        #password="ngModel"
+        minlength="3"
+        name="password"
+        ngModel
+        type="text"
+        class="form-control mt-4 w-75 text-center"
+        placeholder="Enter password"
+        required
+      />
+      <span *ngIf="password.invalid && password.touched" class="text-danger"
+        >Please provide password</span
+      >
+    </div>
+    <div>
+      <button
+        type="submit"
+        class="btn btn-primary text-black"
+        [disabled]="loginForm.invalid"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
+
+<!-- (click)="storeLoginInfo(loginForm.value)" -->
