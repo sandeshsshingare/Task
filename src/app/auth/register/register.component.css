@@ -1,0 +1,13 @@
+.padding {
+  box-sizing: border-box;
+  min-width: fit-content;
+}
+.mycontainer {
+  /* height: 100%; */
+  margin-top: auto;
+  margin-bottom: auto;
+  /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%); */
+}

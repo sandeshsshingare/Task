@@ -1,0 +1,21 @@
+.container{
+    margin-top: 10%;
+}
+.example-border{
+    border:  2px solid black;
+   
+}
+input {
+   
+}
+label{
+    width: 50%;
+    margin:auto
+}
+form{
+    border: 1px solid black;
+     border-radius: 25px;
+}
+.wid{
+    width: fit-content;
+}

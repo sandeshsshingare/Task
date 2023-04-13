@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HomeService } from '../home/home.service';
+import { MyProfileComponent } from '../home/my-profile/my-profile.component';
 
 @Component({
   selector: 'app-auth',
@@ -7,16 +8,19 @@ import { HomeService } from '../home/home.service';
   styleUrls: ['./auth.component.css'],
 })
 export class AuthComponent {
-  constructor(private homeService: HomeService) {}
-  name: string = 'sandesh';
-  localget: any = localStorage.getItem('loggedIn');
-  localparse = this.localget && JSON.parse(this.localget);
+  constructor(public homeService: HomeService) {}
+  // name: string = 'sandesh';
+  // localget: any = localStorage.getItem('loggedIn');
+  // localparse = this.localget && JSON.parse(this.localget);
 
-  getName() {
-    return this.localparse.name;
-  }
+  // getName(): string {
+  //   if (this.localparse.name != null && this.localparse.name != undefined)
+  //     return this.localparse.name;
+  //   else return 'hello';
+  // }
 
   clearLogin() {
     localStorage.removeItem('loggedIn');
+    this.homeService.welcome = null;
   }
 }

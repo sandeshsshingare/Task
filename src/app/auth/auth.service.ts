@@ -9,6 +9,7 @@ import { HomeService } from '../home/home.service';
 export class AuthService {
   constructor(private router: Router, private homeService: HomeService) {}
   formData!: Register;
+  flagformatch: boolean = true;
   local: any = localStorage.getItem('register');
   localparse: any = JSON.parse(this.local);
   registerData: any = this.localparse ? this.localparse : [];
@@ -21,8 +22,20 @@ export class AuthService {
       companyname: data.companyname,
       role: data.role,
     };
-    this.registerData.push(this.formData);
+    console.log(this.registerData[1].email, this.formData.email);
+    for (let i = 0; i < this.registerData.length; i++) {
+      if (this.registerData[i].email == this.formData.email) {
+        this.flagformatch = false;
+      }
+    }
+    if (this.flagformatch === true) {
+      this.registerData.push(this.formData);
+      this.router.navigateByUrl('auth/login');
+    } else {
+      alert('plese enter valid email');
+    }
     localStorage.setItem('register', JSON.stringify(this.registerData));
+    localStorage.removeItem('loggedIn');
   }
   res: string = 'register';
   flag: boolean = false;
@@ -43,7 +56,7 @@ export class AuthService {
       }
     }
     if (this.flag === true) {
-      this.router.navigateByUrl('myProfile');
+      this.router.navigateByUrl('home/myProfile');
     } else {
       alert('Wrong email or password');
     }

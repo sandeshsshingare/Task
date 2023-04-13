@@ -1,8 +1,14 @@
 <nav
   class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between"
 >
-  <div class="float-start">
-    <h1>Welcome {{ getName() }}</h1>
+  <div class="">
+    <!-- <h1>Welcome {{ getName() }}</h1> -->
+    <h1 *ngIf="this.homeService.welcome != null">
+      Welcome,
+      <span class="text-success">
+        {{ this.homeService.welcome | titlecase }}
+      </span>
+    </h1>
   </div>
 
   <div class="me-5">
@@ -18,10 +24,12 @@
     <button routerLink="auth/register" class="btn btn-primary m-3">
       Register
     </button>
-    <button mat-fab routerLink="myProfile" class="btn btn-success">
+    <button mat-fab routerLink="home/myProfile" class="btn btn-success">
       Profile
     </button>
   </div>
 </nav>
 
+<!-- <div class="xyz" > -->
 <router-outlet></router-outlet>
+<!-- </div> -->

@@ -15,5 +15,8 @@ export class MyProfileComponent implements OnInit {
   email: string = this.getparse.email;
   companyname: string = this.getparse.company;
   role: string = this.getparse.role;
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+    this.homeService.welcome = this.name;
+  }
 }

@@ -11,10 +11,12 @@ import { MyProfileComponent } from './home/my-profile/my-profile.component';
 import { AuthModule } from './auth/auth.module';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { FormsModule } from '@angular/forms';
 
 import { MatIconModule } from '@angular/material/icon';
+import { AuthRoutingModule } from './auth/auth-routing.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,11 +30,12 @@ import { MatIconModule } from '@angular/material/icon';
     BrowserModule,
     AppRoutingModule,
     AuthModule,
-
+    AuthRoutingModule,
     MatInputModule,
     FormsModule,
     MatIconModule,
     MatButtonModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

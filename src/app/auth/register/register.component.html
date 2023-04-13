@@ -1,94 +1,113 @@
-<div class="d-flex justify-content-center aligh-items-center">
-  <form #registerForm="ngForm" class="border bg-light text-center">
-    <h1 class="text-center">Registration</h1>
-    <div>
-      <input
-        required
-        #name="ngModel"
-        pattern="[a-zA-z]+$"
-        name="name"
-        ngModel
-        type="text"
-        class="form-control mt-4 w-75 text-center"
-        placeholder="Enter name"
-        required
-      />
-      <span *ngIf="name.invalid && name.touched" class="text-danger"
-        >Please provide name</span
-      >
-    </div>
-    <div>
-      <input
-        required
-        #email="ngModel"
-        name="email"
-        ngModel
-        type="email"
-        class="form-control mt-4 w-75 text-center"
-        placeholder="Enter email"
-      />
-      <span *ngIf="email.invalid && email.touched" class="text-danger"
-        >Please provide email</span
-      >
-    </div>
-    <div>
-      <input
-        required
-        #password="ngModel"
-        minlength="3"
-        name="password"
-        ngModel
-        type="text"
-        class="form-control mt-4 w-75 text-center"
-        placeholder="Enter password"
-        required
-      />
-      <span *ngIf="password.invalid && password.touched" class="text-danger"
-        >Please provide password</span
-      >
-    </div>
-    <div>
-      <input
-        required
-        #companyname="ngModel"
-        name="companyname"
-        ngModel
-        type="text"
-        class="form-control mt-4 w-75 text-center"
-        placeholder="Enter company name"
-        required
-      />
-      <span
-        *ngIf="companyname.invalid && companyname.touched"
-        class="text-danger"
-        >Please provide company name</span
-      >
-    </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-xs-12 col-md-6 col-md-offset-3 mx-auto padding">
+          <form #registerForm="ngForm">
+            <!-- <h1 class="">Registramycontainertion</h1> -->
+            <div class="border bg-light p-4">
+              <div class="m-4">
+                <label for="name">Name</label>
+                <input
+                  required
+                  #name="ngModel"
+                  pattern="[a-zA-z]+$"
+                  name="name"
+                  ngModel
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter name"
+                  required
+                />
+                <span *ngIf="name.invalid && name.touched" class="text-danger"
+                  >Please provide name</span
+                >
+              </div>
+              <div class="m-4">
+                <label for="email">Email</label>
+                <input
+                  required
+                  #email="ngModel"
+                  name="email"
+                  ngModel
+                  type="email"
+                  class="form-control"
+                  placeholder="Enter email"
+                />
+                <span *ngIf="email.invalid && email.touched" class="text-danger"
+                  >Please provide email</span
+                >
+              </div>
+              <div class="m-4">
+                <label for="password">Password</label>
+                <input
+                  required
+                  #password="ngModel"
+                  minlength="3"
+                  name="password"
+                  ngModel
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter password"
+                  required
+                />
+                <span
+                  *ngIf="password.invalid && password.touched"
+                  class="text-danger"
+                  >Please provide password</span
+                >
+              </div>
+              <div class="m-4">
+                <label for="company">Company</label>
 
-    <div>
-      <select
-        class="form-select"
-        aria-label="Default select example"
-        #role="ngModel"
-        ngModel
-        name="role"
-      >
-        <option selected>NA</option>
-        <option value="One">One</option>
-        <option value="Two">Two</option>
-        <option value="Three">Three</option>
-      </select>
-    </div>
+                <input
+                  required
+                  #companyname="ngModel"
+                  name="companyname"
+                  ngModel
+                  type="text"
+                  class="form-control mx-auto"
+                  placeholder="Enter company name"
+                  required
+                />
+                <span
+                  *ngIf="companyname.invalid && companyname.touched"
+                  class="text-danger"
+                  >Please provide company name</span
+                >
+              </div>
 
-    <div>
-      <button
-        type="submit"
-        class="btn btn-primary text-black"
-        [disabled]="registerForm.invalid"
-        (click)="storeRegisterInfo(registerForm.value)"
-      >
-        Submit
-      </button>
+              <div class="m-4">
+                <label for="Role">Role</label>
+                <select
+                  class="form-select mx-auto"
+                  aria-label="Default select example"
+                  #role="ngModel"
+                  ngModel
+                  name="role"
+                >
+                  <option>Human Resource(HR)</option>
+                  <option value="One">Junior Software Engineer</option>
+                  <option value="Two">Senior Software Engineer</option>
+                  <option value="Three">Tester</option>
+                </select>
+              </div>
+
+              <div class="m-4 text-center"></div>
+              <button
+                type="submit"
+                class="btn btn-primary text-black"
+                [disabled]="registerForm.invalid"
+                (click)="storeRegisterInfo(registerForm.value)"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <router-outlet></router-outlet>
     </div>
-  </form>
+  </div>
 </div>
